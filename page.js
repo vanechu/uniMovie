@@ -1,22 +1,13 @@
-$("a").each(function(){
-    if($(this).text().indexOf("豆邮") >= 0)
-    {
-        $(this).hide();
-    };
-});
+var imdbNum = $('a:contains(tt)').text();
 
-// $("a").each(function(){
-//     if($(this).text().indexOf("tt") >= 0){
-//         chrome.extension.sendMessage({greeting: "hello"}, function(response) {
-//             console.log(response.farewell);
-//             console.log($(this).text());
-//         });
-//     }
-// });
+console.log(imdbNum);
 
-$("a:contains('tt')"){
-    chrome.extension.sendMessage({greeting: "hello"}, function(response) {
-        console.log(response.farewell);
-        console.log($(this).text());
+$.getJSON("http://192.168.246.69/imdb/"+imdbNum,
+	function(movieInfo){
+		console.log(movieInfo.movieName);
     });
-}
+
+
+chrome.extension.sendMessage({imdb:imdbNum}, function(response){
+	console.log(response.farewell);
+})
