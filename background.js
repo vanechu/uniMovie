@@ -4,23 +4,8 @@ var script = document.createElement('script');
 script.type = 'text/javascript';
 script.src = 'http//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js';
 
-
-var getUpdateFrequency = function() {
-    return 6000;
-};
-
-var updateLoop = function() {
-    window.setTimeout(autoDetect, getUpdateFrequency());
-};
-
 var setBadgeText = function(text) {
     chrome.browserAction.setBadgeText({ text: text });
-};
-
-var checkForValidUrl = function(tabId, changeInfo, tab) {
-    if (tab.url.indexOf('douban.com') > 0) {
-        console.log("Find");
-    }
 };
 
 var getMovie =function(imdbNum) {
